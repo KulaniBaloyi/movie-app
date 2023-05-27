@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const ShowCard = ({ show }) => {
+const ShowCard = ({ show}) => {
   return (
-    <Link href={`api/tvshows/${show.id}`} >
+    <Link href={`api/tvshows/${show?.id}`} >
       <div className='min-w-[11rem] flex flex-col'>
         <div className={`rounded-lg border h-64 grid place-content-center relative group`}>
           <p className='z-40 text-white grid place-content-center text-[10px] bg-black/80 rounded-full aspect-square h-10 absolute left-5 -bottom-5'>{show?.vote_average.toFixed(1)}%</p>

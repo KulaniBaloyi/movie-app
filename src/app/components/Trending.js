@@ -34,7 +34,7 @@ const Trending = () => {
         <div className="flex space-x-5 py-5">
           {/* Render the cards based on the fetched data */}
           {data && data.results && data.results.map(movie => (
-            <Card key={movie.id} movie={movie} />
+            <Card key={movie.id} {...movie}/>
           ))}
         </div>
       </section>

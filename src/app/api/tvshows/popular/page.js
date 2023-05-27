@@ -2,14 +2,16 @@
 import { useState,useEffect } from "react";
 
 import ShowCard from "@/app/components/TvShowCard";
+import Pagination from "@/app/components/Pagination";
 const page = () => {
   const [data, setData] = useState('');
+  const [page,setPage] = useState(1)
 
   useEffect(() => {
     const getData = async () => {
       try {
         
-        const res = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=aa0b34d169414a371fa98f29e584298f`);
+        const res = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=aa0b34d169414a371fa98f29e584298f&page=${page}`);
         if (res.ok) {
           const jsonData = await res.json();
           setData(jsonData);
@@ -20,7 +22,7 @@ const page = () => {
     }
 
     getData();
-  }, []);
+  }, [page]);
 
   useEffect(() => {
   
@@ -29,7 +31,7 @@ const page = () => {
   return (
   
     <div className="p-10 border bg-white">
-      <h1 className="font-bold text-2xl mb-5">Popular</h1>
+      <h1 className="font-bold text-3xl mb-5">Popular TV Shows</h1>
       <section className="">
         <div className="grid grid-cols-5 gap-5">
           {/* Render the cards based on the fetched data */}
@@ -38,7 +40,7 @@ const page = () => {
           ))}
         </div>
       </section>
-      <div className="bg-green-400 text-center text-white p-3">Pagination</div>
+      <Pagination page={page} setPage={setPage}/>
     </div>
     
     

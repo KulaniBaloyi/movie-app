@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 const Trailer = ({ trailer }) => {
   const [data, setData] = useState(null);
   const [id, setId] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -29,18 +30,31 @@ const Trailer = ({ trailer }) => {
     setId(trailer.id);
   }, [trailer]);
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
     <>
       {data && data.results && data.results.length > 0 && (
-        <div  className="transition rounded-md overflow-hidden hover:scale-110">
+        <div
+          className={`group ${isHovered ? "bg-gray-200" : ""}`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <iframe
-          
             width="300"
             height="168.75"
             src={`https://www.youtube.com/embed/${data.results[0].key}`}
             title="Trailer"
             allowFullScreen
-           
+            className={`transition ${
+              isHovered ? "scale-110" : "scale-100"
+            }`}
           ></iframe>
         </div>
       )}
@@ -49,4 +63,3 @@ const Trailer = ({ trailer }) => {
 };
 
 export default Trailer;
-
