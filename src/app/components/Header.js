@@ -1,11 +1,13 @@
 "use client"
-
+import { useMovieApp } from "../context/MovieAppContext"
 import Link from "next/link"
-import { useState } from "react"
+import { useState,useEffect } from "react"
 
 const Header = () => {
   const [moviesMenu,setMoviesMenu] = useState(false)
   const [tvShowsMenu,setTVshowsMenu] = useState(false)
+ 
+
   return (
     <header className="bg-[rgba(3,37,65)] text-white  p-5 px-10 flex items-center justify-between">
         <div className="flex items-center space-x-5">

@@ -1,15 +1,18 @@
 "use client"
+
 import { useEffect, useState } from "react";
 import Trailer from "./Trailer";
 
 const LatestTrailers = () => {
   const [data, setData] = useState("");
+  const apiKey = process.env.API_KEY
+  const url = process.env.BASE_URL
 
   useEffect(() => {
     const getData = async () => {
       try {
         const res = await fetch(
-          "https://api.themoviedb.org/3/movie/now_playing?api_key=aa0b34d169414a371fa98f29e584298f"
+          `${url}/movie/now_playing?api_key=${apiKey}`
         );
         if (res.ok) {
           const jsonData = await res.json();

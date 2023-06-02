@@ -1,9 +1,5 @@
 "use client"
 
-import { useEffect,useState } from "react"
-
-useEffect
-
 export default function Pagination ({page,setPage}) {
  
 
@@ -28,7 +24,7 @@ export default function Pagination ({page,setPage}) {
           
             
             <svg onClick={()=>handleIncrease()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-gray-800 cursor-pointer  hover:text-teal-500">
-                <path stroke-Linecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>
         </div>
     </div>

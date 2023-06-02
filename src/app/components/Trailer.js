@@ -1,17 +1,20 @@
 "use client"
+
 import { useState, useEffect } from "react";
 
 const Trailer = ({ trailer }) => {
   const [data, setData] = useState(null);
   const [id, setId] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
+  const apiKey = process.env.API_KEY
+  const url = process.env.BASE_URL
 
   useEffect(() => {
     const getData = async () => {
       try {
         if (id) {
           const res = await fetch(
-            `https://api.themoviedb.org/3/movie/${id}/videos?api_key=aa0b34d169414a371fa98f29e584298f`
+            `${url}/movie/${id}/videos?api_key=${apiKey}`
           );
           if (res.ok) {
             const jsonData = await res.json();
@@ -52,8 +55,8 @@ const Trailer = ({ trailer }) => {
             src={`https://www.youtube.com/embed/${data.results[0].key}`}
             title="Trailer"
             allowFullScreen
-            className={`transition ${
-              isHovered ? "scale-110" : "scale-100"
+            className={`transition rounded-md overflow-hidden ${
+              isHovered ? "scale-110 duration-500" : "scale-100"
             }`}
           ></iframe>
         </div>

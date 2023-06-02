@@ -1,17 +1,20 @@
-import React from 'react'
+import Image from "next/image"
 
-const Cast = () => {
+const Cast = ({cast_id,profile_path,name,character}) => {
   return (
-    <div className='min-w-[11rem] flex flex-col border rounded-md overflow-hidden'>
-        <div className={`border   h-64 grid place-content-center w-full`}>
-           
-            Image
-        </div>
-        <div className='flex-wrap px-4 pt-6 w-full'>
-            <h2 className='font-semibold text-sm '>Actor Name Real Name</h2>
-            <h2 className='text-gray-600 text-sm'>The Characters name in the bloody movie</h2>
-        </div>
-    </div>
+    <div key={cast_id} className='rounded-md  cursor-pointer w-36 border my-4 mb-12' >
+             <Image
+            src={`https://image.tmdb.org/t/p/original${profile_path}`}
+            alt={name}
+            width={150}
+            height={150}
+          
+
+            className='object-cover h-full w-full z-10'
+          />
+            <p className='text-gray-800 text-sm font-bold'>{name}</p>
+            <p className='text-gray-500 text-xs'>{character}</p>
+           </div>
   )
 }
 

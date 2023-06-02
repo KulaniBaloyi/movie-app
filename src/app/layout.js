@@ -1,5 +1,7 @@
+//Components
 import Header from './components/Header'
 import Footer from './components/Footer'
+import MovieAppProvider from './context/MovieAppContext'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -14,9 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-       <Header/>
+      
+      <MovieAppProvider>
+      <Header/>
         {children}
         <Footer/>
+        </MovieAppProvider> 
         </body>
     </html>
   )

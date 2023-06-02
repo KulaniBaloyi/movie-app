@@ -4,11 +4,13 @@ import Card from "./MovieCard"
 
 const WhatsPopular = () => {
   const [data, setData] = useState('');
+  const api_key =process.env.API_KEY
+const url = process.env.BASE_URL
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=aa0b34d169414a371fa98f29e584298f`);
+        const res = await fetch(`${url}/movie/popular?api_key=${api_key}`);
         if (res.ok) {
           const jsonData = await res.json();
           setData(jsonData);
