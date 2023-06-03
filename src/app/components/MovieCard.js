@@ -3,6 +3,8 @@ import Link from 'next/link';
 
 const Card = ({ id,backdrop_path,original_title,release_date,vote_average,title }) => {
   const imgUrl = `https://image.tmdb.org/t/p/original${backdrop_path}`
+  const fallbackImage = '/poster-placeholder.jpg';
+
 
   return (
     <Link href={`api/movies/${id}`} className='rounded-md transition duration-500 shadow-sm shadow-gray-400 hover:scale-110' >
@@ -12,6 +14,10 @@ const Card = ({ id,backdrop_path,original_title,release_date,vote_average,title 
           
           <Image
             src={imgUrl}
+            // onError={(e) => {
+            //   //e.target.onerror = null
+            //   e.target.src = fallbackImage
+            // }}
             alt={title}
           fill
             // objectFit='cover'

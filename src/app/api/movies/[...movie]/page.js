@@ -49,6 +49,7 @@ const Page = ({ params }) => {
 
     fetchCredits();
     fetchData();
+   
     // Re-fetch all data every time the ID changes to make sure we have correct data
   }, [movieId]);
 
@@ -63,6 +64,7 @@ const Page = ({ params }) => {
 
   return (
     <main>
+      
       <section
         className="min-h-[300px] md:min-h-screen w-full p-10 flex gap-10 text-white relative"
         style={{ backgroundImage: `url(${backgroundImageUrl})`, objectFit: 'cover' }}
@@ -191,7 +193,8 @@ const Page = ({ params }) => {
           <div className="flex space-x-5">
             {credits &&
               credits.cast.map(credit => (
-                <Cast key={credit.cast_id} {...credit} />
+    
+                 <Cast key={credit.credit_id} {...credit} />
               ))}
           </div>
         </div>
@@ -202,7 +205,7 @@ const Page = ({ params }) => {
           <div className="flex space-x-5">
             {credits &&
               credits.crew.map(crew => (
-                <Crew key={crew.id} {...crew} />
+                <Crew key={crew.credit_id} {...crew} />
               ))}
           </div>
         </div>

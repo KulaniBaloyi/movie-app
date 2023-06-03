@@ -1,5 +1,6 @@
 import Image from "next/image"
 const Crew = ({id,profile_path,name,job}) => {
+  const fallbackImage = '/user-placeholder.jpg';
   return (
     <div key={id} className='rounded-md  cursor-pointer w-36 border my-4 mb-12' >
              <Image
@@ -7,6 +8,10 @@ const Crew = ({id,profile_path,name,job}) => {
             alt={name}
             width={150}
             height={150}
+            // onError={(e) => {
+            //   //e.target.onerror = null
+            //   e.target.src = fallbackImage 
+            // }}
           
 
             className='object-cover h-full w-full z-10'
