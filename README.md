@@ -1,6 +1,6 @@
 # This is my first project I dockerized
 
-Go to ['dockerhub profile']("https://hub.docker.com/repository/docker/kulanibaloyi/movie-app/general") to check out more
+Go to ('dockerhub profile')["https://hub.docker.com/repository/docker/kulanibaloyi/movie-app/general"] to check out more
 
 to set up:
 
