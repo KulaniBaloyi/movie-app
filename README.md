@@ -10,7 +10,9 @@ to set up:
 ```
 docker pull kulanibaloyi/movie-app:latest
 ```
-- run docker start -it -p 3000:3000 movie-app:latest
+- run
+  ```docker start -it -p 3000:3000 movie-app:latest```
+  
 - open browser on localhost:3000
 
 
